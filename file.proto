@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package file.repository;
+
+import "google/protobuf/timestamp.proto";
+
+message File {
+    int32 id = 1;
+    google.protobuf.Timestamp created_at = 2;
+    int32 size = 3;
+    int32 user_id = 4;
+
+    bytes file = 5;
+}
+
+message SaveFileRequest {
+    bytes file = 1;
+    int32 user_id = 2;
+}
+
+message GetFileRequest {
+    int32 id = 1;
+}

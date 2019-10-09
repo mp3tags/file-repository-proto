@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+// protoc --go_out=plugins=grpc:. *.proto
+
+package file.repository;
+
+import "file.proto";
+
+service RequestRepositoryService {
+    rpc SaveFile(SaveFileRequest) returns (File) {}
+    rpc GetFile(GetFileRequest) returns (File) {}
+}

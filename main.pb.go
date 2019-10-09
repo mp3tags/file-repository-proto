@@ -27,16 +27,16 @@ const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 func init() { proto.RegisterFile("main.proto", fileDescriptor_7ed94b0a22d11796) }
 
 var fileDescriptor_7ed94b0a22d11796 = []byte{
-	// 132 bytes of a gzipped FileDescriptorProto
+	// 131 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0xe2, 0xca, 0x4d, 0xcc, 0xcc,
 	0xd3, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0x4f, 0xcb, 0xcc, 0x49, 0xd5, 0x2b, 0x4a, 0x2d,
-	0xc8, 0x2f, 0xce, 0x2c, 0xc9, 0x2f, 0xaa, 0x94, 0xe2, 0x02, 0x0b, 0x80, 0x25, 0x8d, 0x96, 0x31,
-	0x72, 0x49, 0x04, 0xa5, 0x16, 0x96, 0xa6, 0x16, 0x97, 0x04, 0xc1, 0x55, 0x04, 0xa7, 0x16, 0x95,
-	0x65, 0x26, 0xa7, 0x0a, 0xb9, 0x72, 0x71, 0x04, 0x27, 0x96, 0xa5, 0xba, 0x01, 0x95, 0x0b, 0x29,
-	0xe8, 0xa1, 0x19, 0xa3, 0x07, 0x93, 0x82, 0x6a, 0x97, 0x12, 0xc5, 0x50, 0x01, 0x92, 0x55, 0x62,
-	0x10, 0x72, 0xe6, 0x62, 0x77, 0x4f, 0x2d, 0x01, 0x9b, 0x22, 0x8f, 0xa1, 0x06, 0x2a, 0x43, 0xc8,
-	0x90, 0x24, 0x36, 0xb0, 0x7b, 0x8d, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0xb6, 0xb3, 0xb3, 0x4f,
-	0xda, 0x00, 0x00, 0x00,
+	0xc8, 0x2f, 0xce, 0x2c, 0xc9, 0x2f, 0xaa, 0x94, 0xe2, 0x02, 0x0b, 0x80, 0x25, 0x8d, 0x16, 0x33,
+	0x72, 0x89, 0xba, 0x01, 0xb9, 0x41, 0x70, 0xe9, 0xe0, 0xd4, 0xa2, 0xb2, 0xcc, 0xe4, 0x54, 0x21,
+	0x57, 0x2e, 0x8e, 0xe0, 0xc4, 0xb2, 0x54, 0x90, 0xa4, 0x90, 0x82, 0x1e, 0x9a, 0x19, 0x7a, 0x30,
+	0xa9, 0xa0, 0xd4, 0xc2, 0xd2, 0xd4, 0xe2, 0x12, 0x29, 0x51, 0x0c, 0x15, 0x20, 0x59, 0x25, 0x06,
+	0x21, 0x67, 0x2e, 0x76, 0xf7, 0xd4, 0x12, 0xb0, 0x29, 0xf2, 0x18, 0x6a, 0xa0, 0x32, 0x84, 0x0c,
+	0x49, 0x62, 0x03, 0x3b, 0xd6, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0xee, 0xc8, 0x29, 0xf7, 0xd7,
+	0x00, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -47,108 +47,108 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// RequestRepositoryServiceClient is the client API for RequestRepositoryService service.
+// FileRepositoryServiceClient is the client API for FileRepositoryService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type RequestRepositoryServiceClient interface {
+type FileRepositoryServiceClient interface {
 	SaveFile(ctx context.Context, in *SaveFileRequest, opts ...grpc.CallOption) (*File, error)
 	GetFile(ctx context.Context, in *GetFileRequest, opts ...grpc.CallOption) (*File, error)
 }
 
-type requestRepositoryServiceClient struct {
+type fileRepositoryServiceClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewRequestRepositoryServiceClient(cc *grpc.ClientConn) RequestRepositoryServiceClient {
-	return &requestRepositoryServiceClient{cc}
+func NewFileRepositoryServiceClient(cc *grpc.ClientConn) FileRepositoryServiceClient {
+	return &fileRepositoryServiceClient{cc}
 }
 
-func (c *requestRepositoryServiceClient) SaveFile(ctx context.Context, in *SaveFileRequest, opts ...grpc.CallOption) (*File, error) {
+func (c *fileRepositoryServiceClient) SaveFile(ctx context.Context, in *SaveFileRequest, opts ...grpc.CallOption) (*File, error) {
 	out := new(File)
-	err := c.cc.Invoke(ctx, "/file.repository.RequestRepositoryService/SaveFile", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/file.repository.FileRepositoryService/SaveFile", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *requestRepositoryServiceClient) GetFile(ctx context.Context, in *GetFileRequest, opts ...grpc.CallOption) (*File, error) {
+func (c *fileRepositoryServiceClient) GetFile(ctx context.Context, in *GetFileRequest, opts ...grpc.CallOption) (*File, error) {
 	out := new(File)
-	err := c.cc.Invoke(ctx, "/file.repository.RequestRepositoryService/GetFile", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/file.repository.FileRepositoryService/GetFile", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// RequestRepositoryServiceServer is the server API for RequestRepositoryService service.
-type RequestRepositoryServiceServer interface {
+// FileRepositoryServiceServer is the server API for FileRepositoryService service.
+type FileRepositoryServiceServer interface {
 	SaveFile(context.Context, *SaveFileRequest) (*File, error)
 	GetFile(context.Context, *GetFileRequest) (*File, error)
 }
 
-// UnimplementedRequestRepositoryServiceServer can be embedded to have forward compatible implementations.
-type UnimplementedRequestRepositoryServiceServer struct {
+// UnimplementedFileRepositoryServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedFileRepositoryServiceServer struct {
 }
 
-func (*UnimplementedRequestRepositoryServiceServer) SaveFile(ctx context.Context, req *SaveFileRequest) (*File, error) {
+func (*UnimplementedFileRepositoryServiceServer) SaveFile(ctx context.Context, req *SaveFileRequest) (*File, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SaveFile not implemented")
 }
-func (*UnimplementedRequestRepositoryServiceServer) GetFile(ctx context.Context, req *GetFileRequest) (*File, error) {
+func (*UnimplementedFileRepositoryServiceServer) GetFile(ctx context.Context, req *GetFileRequest) (*File, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFile not implemented")
 }
 
-func RegisterRequestRepositoryServiceServer(s *grpc.Server, srv RequestRepositoryServiceServer) {
-	s.RegisterService(&_RequestRepositoryService_serviceDesc, srv)
+func RegisterFileRepositoryServiceServer(s *grpc.Server, srv FileRepositoryServiceServer) {
+	s.RegisterService(&_FileRepositoryService_serviceDesc, srv)
 }
 
-func _RequestRepositoryService_SaveFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FileRepositoryService_SaveFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SaveFileRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RequestRepositoryServiceServer).SaveFile(ctx, in)
+		return srv.(FileRepositoryServiceServer).SaveFile(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/file.repository.RequestRepositoryService/SaveFile",
+		FullMethod: "/file.repository.FileRepositoryService/SaveFile",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestRepositoryServiceServer).SaveFile(ctx, req.(*SaveFileRequest))
+		return srv.(FileRepositoryServiceServer).SaveFile(ctx, req.(*SaveFileRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RequestRepositoryService_GetFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FileRepositoryService_GetFile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFileRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RequestRepositoryServiceServer).GetFile(ctx, in)
+		return srv.(FileRepositoryServiceServer).GetFile(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/file.repository.RequestRepositoryService/GetFile",
+		FullMethod: "/file.repository.FileRepositoryService/GetFile",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RequestRepositoryServiceServer).GetFile(ctx, req.(*GetFileRequest))
+		return srv.(FileRepositoryServiceServer).GetFile(ctx, req.(*GetFileRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _RequestRepositoryService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "file.repository.RequestRepositoryService",
-	HandlerType: (*RequestRepositoryServiceServer)(nil),
+var _FileRepositoryService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "file.repository.FileRepositoryService",
+	HandlerType: (*FileRepositoryServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "SaveFile",
-			Handler:    _RequestRepositoryService_SaveFile_Handler,
+			Handler:    _FileRepositoryService_SaveFile_Handler,
 		},
 		{
 			MethodName: "GetFile",
-			Handler:    _RequestRepositoryService_GetFile_Handler,
+			Handler:    _FileRepositoryService_GetFile_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

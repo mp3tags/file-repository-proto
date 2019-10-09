@@ -6,7 +6,7 @@ package file.repository;
 
 import "file.proto";
 
-service RequestRepositoryService {
+service FileRepositoryService {
     rpc SaveFile(SaveFileRequest) returns (File) {}
     rpc GetFile(GetFileRequest) returns (File) {}
 }
